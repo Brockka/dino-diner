@@ -9,9 +9,9 @@ using System.Text;
 namespace DinoDiner.Menu.Sides
 {
     /// <summary>
-    /// Fryceritops menu item
+    /// MeteorMacAndCheese menu item
     /// </summary>
-    public class Fryceritops : Side
+    public class MeteorMacAndCheese : Side
     {
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -20,7 +20,7 @@ namespace DinoDiner.Menu.Sides
         {
             get
             {
-                return new List<string>() { "Potato", "Salt", "Vegetable Oil" };
+                return new List<string>() { "Macaroni Noodles", "Cheese Product", "Pork Sausage" };
             }
         }
 
@@ -41,11 +41,11 @@ namespace DinoDiner.Menu.Sides
                 {
                     case Size.Large:
                         Price = 1.95;
-                        Calories = 480;
+                        Calories = 520;
                         break;
                     case Size.Medium:
                         Price = 1.45;
-                        Calories = 365;
+                        Calories = 490;
                         break;
                 }
 
@@ -59,11 +59,11 @@ namespace DinoDiner.Menu.Sides
         /// <summary>
         /// Public constructor that initializes the default calories and price (size small)
         /// </summary>
-        public Fryceritops()
+        public MeteorMacAndCheese()
         {
-            this.Price = 0.99;
-            this.Calories = 222;
+            this.Price = .99;
+            this.Calories = 420;
         }
-        
+
     }
 }

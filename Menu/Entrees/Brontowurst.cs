@@ -1,7 +1,15 @@
-﻿using System.Collections.Generic;
+﻿/*  Brontowurst.cs
+*   Author: Brock Kaufmann
+*/
+
+using System.Collections.Generic;
+
 
 namespace DinoDiner.Menu.Entrees
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Brontowurst
     {
         private bool bun = true;

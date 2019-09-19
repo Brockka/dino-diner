@@ -1,10 +1,16 @@
-﻿using System;
+﻿/*  Side.cs
+*   Modified by: Brock Kaufmann
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Sides
 {
-
+    /// <summary>
+    /// Enumeration of sizes of the sides that can be ordered: Small, Medium and Large
+    /// </summary>
     public enum Size
     {
         Small,
@@ -12,6 +18,9 @@ namespace DinoDiner.Menu.Sides
         Large
     }
 
+    /// <summary>
+    /// Abstract base class for all the sides on the menu
+    /// </summary>
     public abstract class Side
     {
         /// <summary>
