@@ -1,19 +1,32 @@
-﻿using System;
+﻿/*  VelociWrap.cs
+*   Author: Brock Kaufmann
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class VelociWrap
+    public class VelociWrap : Entree
     {
+        /// <summary>
+        /// bool representing dressing
+        /// </summary>
         private bool dressing = true;
+        /// <summary>
+        /// bool representing lettuce
+        /// </summary>
         private bool lettuce = true;
+        /// <summary>
+        /// bool representing the cheese
+        /// </summary>
         private bool cheese = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Overrides the base class list of ingredients with the ones specific to this menu item
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -27,23 +40,34 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructs VelociWrap with specified price and calories
+        /// </summary>
         public VelociWrap()
         {
             this.Price = 6.86;
             this.Calories = 356;
         }
 
+        /// <summary>
+        /// Holds lettuce from the list of ingredients
+        /// </summary>
         public void HoldLettuce()
         {
             this.lettuce = false;
         }
 
-
+        /// <summary>
+        /// Holds dressing from list of ingredients
+        /// </summary>
         public void HoldDressing()
         {
             this.dressing = false;
         }
 
+        /// <summary>
+        /// Holds cheese from list of ingredients
+        /// </summary>
         public void HoldCheese()
         {
             this.cheese = false;

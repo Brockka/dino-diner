@@ -1,16 +1,22 @@
-﻿using System.Collections.Generic;
+﻿/*  DinoNuggets.cs
+*   Author: Brock Kaufmann
+*/
+
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
+        /// <summary>
+        /// Number of nuggets being ordered (default 6)
+        /// </summary>
         private int nuggetCount = 6;
 
-        //test
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Overrides the base class list of ingredients with the ones specific to this menu item
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -23,12 +29,19 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+
+        /// <summary>
+        /// Constructs DinoNuggets menu item with calories and price
+        /// </summary>
         public DinoNuggets()
         {
             this.Price = 4.25;
             this.Calories = 59 * 6;
         }
 
+        /// <summary>
+        /// Adds a nugget to the order and updates calories, price and nuggetCount
+        /// </summary>
         public void AddNugget()
         {
             nuggetCount++;

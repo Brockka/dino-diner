@@ -1,27 +1,29 @@
-﻿using System.Collections.Generic;
+﻿/*  PterodactylWings.cs
+*   Author: Brock Kaufmann
+*/
+using System.Collections.Generic;
 
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class PterodactylWings
+    public class PterodactylWings : Entree
     {
-        private bool chicken = true;
-        private bool wingsauce = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Overrides the base class list of ingredients with the ones specific to this menu item
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
-                List<string> ingredients = new List<string>() { };
-                if (chicken) ingredients.Add("Chicken");
-                if (wingsauce) ingredients.Add("Wing Sauce");
-                return ingredients;
+                return new List<string>() { "Chicken", "Wing Sauce"};
             }
+
         }
 
+        /// <summary>
+        /// Constructor for PterodactylWings that sets price and calories
+        /// </summary>
         public PterodactylWings()
         {
             this.Price = 7.21;

@@ -1,16 +1,26 @@
-﻿using System.Collections.Generic;
+﻿/*  Brontowurst.cs
+*   Modified by: Brock Kaufmann
+*/
+
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class PrehistoricPBJ
+    public class PrehistoricPBJ: Entree
     {
+        /// <summary>
+        /// Bool representing peanut butter on the sandwich
+        /// </summary>
         private bool peanutButter = true;
+        /// <summary>
+        /// Bool representing jelly on the sandwich
+        /// </summary>
         private bool jelly = true;
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-
-        public List<string> Ingredients
+        /// <summary>
+        /// Overrides the base class list of ingredients with the ones specific to this menu item
+        /// </summary>
+        public override List<string> Ingredients
         {
             get
             {
@@ -21,20 +31,31 @@ namespace DinoDiner.Menu.Entrees
             }
         }
 
+        /// <summary>
+        /// Constructor for PrehistoricPBJ that sets the price and calories
+        /// </summary>
         public PrehistoricPBJ()
         {
             this.Price = 6.52;
             this.Calories = 483;
         }
 
+        /// <summary>
+        /// Removes peanutbutter from ingredients
+        /// </summary>
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
         }
 
+        /// <summary>
+        /// Removes jelly from ingredients
+        /// </summary>
         public void HoldJelly()
         {
             this.jelly = false;
         }
+
+
     }
 }
