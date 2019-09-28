@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  Tyrannotea.cs
+*   Author: Brock Kaufmann
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -8,14 +11,58 @@ namespace DinoDiner.Menu.Drinks
     public class Tyrannotea : Drink
     {
         /// <summary>
-        /// Property that holds if there is lemon in the tea
+        /// Gets and sets the whether there is lemon in the tea
         /// </summary>
-        public bool Lemon = false;
+        public bool Lemon { get; set; }
 
         /// <summary>
-        /// Property that holds if the tea is sweetened or unsweetened
+        /// Creates a private sweet field
         /// </summary>
-        public bool Sweet = false;
+        private bool sweet;
+        /// <summary>
+        /// Gets and sets if the tea is sweetened or unsweetened
+        /// </summary>
+        public bool Sweet { 
+                get { return sweet; }
+                set{
+                    sweet = value;
+                    switch (Size)
+                    {
+                        case Size.Large:
+                            if (sweet)
+                            {
+                            Calories = 64;
+                            }
+                            else
+                            {
+                            Calories = 32;
+                            }
+                            break;
+                        case Size.Medium:
+                            if (sweet)
+                            {
+                                Calories = 32;
+                            }
+                            else
+                            {
+                                Calories = 16;
+                            }
+                            break;
+                        case Size.Small:
+                            if (sweet)
+                            {
+                            Calories = 16;
+                            }
+                            else
+                            {
+                                Calories = 8;
+                            }
+                            break;
+                }
+                
+                }
+
+            }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -92,6 +139,9 @@ namespace DinoDiner.Menu.Drinks
             }
         }
 
+        /// <summary>
+        /// Method to add lemon to drink
+        /// </summary>
         public void AddLemon()
         {
             Lemon = true;

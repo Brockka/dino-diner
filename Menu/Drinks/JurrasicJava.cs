@@ -1,16 +1,23 @@
-﻿/*  Sodasaurus.cs
+﻿/*  JurrasicJava.cs
 *   Author: Brock Kaufmann
 */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace DinoDiner.Menu.Drinks
 {
-    public class Sodasaurus : Drink
+    public class JurrasicJava : Drink
     {
-        public SodasaurusFlavor Flavor;
+        /// <summary>
+        /// Gets and sets the room for cream
+        /// </summary>
+        public bool RoomForCream { get; set; }
+
+        /// <summary>
+        /// Gets and sets whether the drink is decaf
+        /// </summary>
+        public bool Decaf { get; set; }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -19,7 +26,7 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+               return new List<string>() { "Water", "Coffee" };
             }
         }
 
@@ -35,26 +42,43 @@ namespace DinoDiner.Menu.Drinks
                 switch (size)
                 {
                     case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
+                        Price = 1.49;
+                        Calories = 8;
                         break;
                     case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
+                        Price = 0.99;
+                        Calories = 4;
                         break;
                 }
             }
             get { return size; }
-            
+
         }
 
         /// <summary>
         /// Public constructor that initializes the default calories and price (size small)
         /// </summary>
-        public Sodasaurus()
+        public JurrasicJava()
         {
-            this.Price = 1.50;
-            this.Calories = 112;
+            this.Price = 0.59;
+            this.Calories = 2;
+            HoldIce();
+        }
+
+        /// <summary>
+        /// Leaves room for cream in the drink
+        /// </summary>
+        public void LeaveRoomForCream()
+        {
+            RoomForCream = true;
+        }
+
+        /// <summary>
+        /// Adds ice to the drink
+        /// </summary>
+        public void AddIce()
+        {
+            Ice = true;
         }
     }
 }

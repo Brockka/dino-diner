@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*  Drink.cs
+*   Author: Brock Kaufmann
+*/
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,7 +17,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Gets and sets whether there is ice or not
         /// </summary>
-        public bool Ice { get => Ice; set => Ice = true; }
+        public bool Ice { get; set; } = true;
 
         /// <summary>
         /// Gets and sets the calories

@@ -1,16 +1,18 @@
-﻿/*  Sodasaurus.cs
+﻿/*  Water.cs
 *   Author: Brock Kaufmann
 */
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace DinoDiner.Menu.Drinks
 {
-    public class Sodasaurus : Drink
+    public class Water : Drink
     {
-        public SodasaurusFlavor Flavor;
+        /// <summary>
+        /// Gets and sets whether there is lemon or not
+        /// </summary>
+        public bool Lemon{ get; set; }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -19,7 +21,12 @@ namespace DinoDiner.Menu.Drinks
         {
             get
             {
-                return new List<string>() { "Water", "Natural Flavors", "Cane Sugar" };
+                List<string> list = new List<string>() { "Water" };
+                if (Lemon)
+                {
+                    list.Add("Lemon");
+                }
+                return list;
             }
         }
 
@@ -32,29 +39,26 @@ namespace DinoDiner.Menu.Drinks
             set
             {
                 size = value;
-                switch (size)
-                {
-                    case Size.Large:
-                        Price = 2.50;
-                        Calories = 208;
-                        break;
-                    case Size.Medium:
-                        Price = 2.00;
-                        Calories = 156;
-                        break;
-                }
             }
             get { return size; }
-            
+
         }
 
         /// <summary>
         /// Public constructor that initializes the default calories and price (size small)
         /// </summary>
-        public Sodasaurus()
+        public Water()
         {
-            this.Price = 1.50;
-            this.Calories = 112;
+            this.Price = 0.10;
+            this.Calories = 0;
+        }
+
+        /// <summary>
+        /// Method to add lemon to drink
+        /// </summary>
+        public void AddLemon()
+        {
+            Lemon = true;
         }
     }
 }
