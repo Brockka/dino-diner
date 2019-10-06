@@ -5,12 +5,12 @@
 using System.Collections.Generic;
 
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Brontowurst menu item
     /// </summary>
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         /// <summary>
         /// Bool representing the bun
@@ -78,5 +78,13 @@ namespace DinoDiner.Menu.Entrees
             this.onion = false;
         }
 
+        /// <summary>
+        /// Overriden ToString() for brontowurst class
+        /// </summary>
+        /// <returns>returns name of menu item</returns>
+        public override string ToString()
+        {
+            return "Brontowurst";
+        }
     }
 }

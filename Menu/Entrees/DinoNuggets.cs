@@ -4,9 +4,12 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class DinoNuggets : Entree
+    /// <summary>
+    /// Dino nuggets menu item class
+    /// </summary>
+    public class DinoNuggets : Entree, IMenuItem
     {
         /// <summary>
         /// Number of nuggets being ordered (default 6)
@@ -47,6 +50,15 @@ namespace DinoDiner.Menu.Entrees
             nuggetCount++;
             Price += .25;
             Calories += 59;
+        }
+
+        /// <summary>
+        /// Overriden ToString() for DinoNuggets class
+        /// </summary>
+        /// <returns>returns name of menu item</returns>
+        public override string ToString()
+        {
+            return "Dino-Nuggets";
         }
 
     }

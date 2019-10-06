@@ -6,9 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public abstract class Entree
+    /// <summary>
+    /// Abstract class for all Entrees
+    /// </summary>
+    public abstract class Entree : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price

@@ -4,9 +4,12 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class SteakosaurusBurger : Entree
+    /// <summary>
+    /// Steakosaurus burger menu item
+    /// </summary>
+    public class SteakosaurusBurger : Entree, IMenuItem
     {
         /// <summary>
         /// Bool representing the bun
@@ -81,6 +84,15 @@ namespace DinoDiner.Menu.Entrees
         public void HoldMustard()
         {
             this.mustard = false;
+        }
+
+        /// <summary>
+        /// Overriden ToString() for SteakosaurusBurger class
+        /// </summary>
+        /// <returns>returns name of menu item</returns>
+        public override string ToString()
+        {
+            return "Steakosaurus Burger";
         }
     }
 }

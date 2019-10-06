@@ -6,9 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class VelociWrap : Entree
+    /// <summary>
+    /// VelociWrap menu item
+    /// </summary>
+    public class VelociWrap : Entree, IMenuItem
     {
         /// <summary>
         /// bool representing dressing
@@ -73,5 +76,13 @@ namespace DinoDiner.Menu.Entrees
             this.cheese = false;
         }
 
+        /// <summary>
+        /// Overriden ToString() for VelociWrap class
+        /// </summary>
+        /// <returns>returns name of menu item</returns>
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
+        }
     }
 }

@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
         /// <summary>
         /// Gets and sets whether there is lemon or not
@@ -59,6 +59,29 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             Lemon = true;
+        }
+
+        /// <summary>
+        /// Overriden ToString() for Water class
+        /// </summary>
+        /// <returns>returns name of menu item as a string</returns>
+        public override string ToString()
+        {
+            string s;
+            if (Size == Size.Small)
+            {
+                s = "Small ";
+            }
+            else if (Size == Size.Medium)
+            {
+                s = "Medium ";
+            }
+            else
+            {
+                s = "Large ";
+            }
+            s += "Water";
+            return s;
         }
     }
 }

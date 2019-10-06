@@ -4,9 +4,13 @@
 using System.Collections.Generic;
 
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class PterodactylWings : Entree
+
+    /// <summary>
+    /// Class for Pterodactly wings menu item
+    /// </summary>
+    public class PterodactylWings : Entree, IMenuItem
     {
 
         /// <summary>
@@ -28,6 +32,15 @@ namespace DinoDiner.Menu.Entrees
         {
             this.Price = 7.21;
             this.Calories = 318;
+        }
+
+        /// <summary>
+        /// Overriden ToString() for PterodactylWings class
+        /// </summary>
+        /// <returns>returns name of menu item</returns>
+        public override string ToString()
+        {
+            return "Pterodactyl Wings";
         }
     }
 }

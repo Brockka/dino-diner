@@ -6,12 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
     /// <summary>
     /// Fryceritops menu item
     /// </summary>
-    public class Fryceritops : Side
+    public class Fryceritops : Side, IMenuItem
     {
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -64,6 +64,29 @@ namespace DinoDiner.Menu.Sides
             this.Price = 0.99;
             this.Calories = 222;
         }
-        
+
+        /// <summary>
+        /// Overriden ToString() for Fryceritops class
+        /// </summary>
+        /// <returns>returns name of menu item</returns>
+        public override string ToString()
+        {
+            string s;
+            if (Size == Size.Small)
+            {
+                s = "Small ";
+            }
+            else if (Size == Size.Medium)
+            {
+                s = "Medium ";
+            }
+            else
+            {
+                s = "Large ";
+            }
+            s += "Friceritops";
+            return s;
+        }
+
     }
 }

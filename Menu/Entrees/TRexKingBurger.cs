@@ -4,9 +4,12 @@
 
 using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class TRexKingBurger : Entree
+    /// <summary>
+    /// T-Rex King Burger menu item
+    /// </summary>
+    public class TRexKingBurger : Entree, IMenuItem
     {
         /// <summary>
         /// bool representing the bun
@@ -138,5 +141,13 @@ namespace DinoDiner.Menu.Entrees
             this.mustard = false;
         }
 
+        /// <summary>
+        /// Overriden ToString() for TRexKingBurger class
+        /// </summary>
+        /// <returns>returns name of menu item</returns>
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
+        }
     }
 }

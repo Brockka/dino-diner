@@ -5,9 +5,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurrasicJava : Drink
+    /// <summary>
+    /// Class for jurassic java
+    /// </summary>
+    public class JurassicJava : Drink , IMenuItem
     {
         /// <summary>
         /// Gets and sets the room for cream
@@ -58,7 +61,7 @@ namespace DinoDiner.Menu.Drinks
         /// <summary>
         /// Public constructor that initializes the default calories and price (size small)
         /// </summary>
-        public JurrasicJava()
+        public JurassicJava()
         {
             this.Price = 0.59;
             this.Calories = 2;
@@ -79,6 +82,33 @@ namespace DinoDiner.Menu.Drinks
         public void AddIce()
         {
             Ice = true;
+        }
+
+        /// <summary>
+        /// Overriden ToString() for JurassicJava class
+        /// </summary>
+        /// <returns>returns name of menu item as a string</returns>
+        public override string ToString()
+        {
+            string s;
+            if (Size == Size.Small)
+            {
+                s = "Small ";
+            }
+            else if (Size == Size.Medium)
+            {
+                s = "Medium ";
+            }
+            else
+            {
+                s = "Large ";
+            }
+            if (Decaf)
+            {
+                s += "Decaf ";
+            }
+            s += "Jurassic Java";
+            return s;
         }
     }
 }
