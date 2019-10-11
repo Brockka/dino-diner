@@ -5,22 +5,58 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
+      Background="Black"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ComboSelection">
 
     <WrapPanel>
         <WrapPanel.Resources>
             <Style TargetType="Button">
-                <Setter Property="Width" Value="160"/>
-                <Setter Property="Height" Value="160"/>
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button>Brontowurst Combo</Button>
-        <Button>Dino-Nuggets Combo</Button>
-        <Button>Steakosaurus Burger Combo</Button>
-        <Button>T-Rex King Burger Combo</Button>
-        <Button>Pterodactyl Wings Combo</Button>
-        <Button>Prehistoric PB&amp;J Combo</Button>
-        <Button>Veloci-Wrap Combo</Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Brontowurst Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-01.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Dino-Nuggets Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-02.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Steakosaurus Burger Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-05.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="T-Rex King Burger Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-06.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Pterodactyl Wings Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-04.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Prehistoric PB&amp;J Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-03.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Veloci-Wrap Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-07.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
     </WrapPanel>
 </Page>

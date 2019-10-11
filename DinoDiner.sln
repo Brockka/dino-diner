@@ -9,6 +9,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MenuTest", "MenuTest\MenuTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfSale", "PointOfSale\PointOfSale.csproj", "{9FABDA8A-4F96-4763-A7C3-41AC367CE151}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assets", "Assets", "{E5E4AADE-6C81-4B0B-AE8D-E7AB465937F9}"
+	ProjectSection(SolutionItems) = preProject
+		Dino Diner PNG\DinoDiner-01.png = Dino Diner PNG\DinoDiner-01.png
+		Dino Diner PNG\DinoDiner-02.png = Dino Diner PNG\DinoDiner-02.png
+		Dino Diner PNG\DinoDiner-03.png = Dino Diner PNG\DinoDiner-03.png
+		Dino Diner PNG\DinoDiner-04.png = Dino Diner PNG\DinoDiner-04.png
+		Dino Diner PNG\DinoDiner-05.png = Dino Diner PNG\DinoDiner-05.png
+		Dino Diner PNG\DinoDiner-06.png = Dino Diner PNG\DinoDiner-06.png
+		Dino Diner PNG\DinoDiner-07.png = Dino Diner PNG\DinoDiner-07.png
+		Dino Diner PNG\DinoDiner-08.png = Dino Diner PNG\DinoDiner-08.png
+		Dino Diner PNG\DinoDiner-09.png = Dino Diner PNG\DinoDiner-09.png
+		Dino Diner PNG\DinoDiner-10.png = Dino Diner PNG\DinoDiner-10.png
+		Dino Diner PNG\DinoDiner-11.png = Dino Diner PNG\DinoDiner-11.png
+		Dino Diner PNG\DinoDiner-12.png = Dino Diner PNG\DinoDiner-12.png
+		Dino Diner PNG\DinoDiner-13.png = Dino Diner PNG\DinoDiner-13.png
+		Dino Diner PNG\DinoDiner-14.png = Dino Diner PNG\DinoDiner-14.png
+		Dino Diner PNG\DinoDiner-15.png = Dino Diner PNG\DinoDiner-15.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
