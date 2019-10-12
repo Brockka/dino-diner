@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      Background="Black"
-      d:DesignHeight="450" d:DesignWidth="800"
+      Background="Lavender"
+      d:DesignHeight="450" d:DesignWidth="1000"
       Title="ComboSelection">
 
     <WrapPanel>
@@ -16,43 +16,43 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Brontowurst Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-01.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Dino-Nuggets Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-02.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Steakosaurus Burger Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-05.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="T-Rex King Burger Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-06.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Pterodactyl Wings Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-04.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Prehistoric PB&amp;J Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-03.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Veloci-Wrap Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-07.png" Width="175" Stretch="Fill" Height="175"/>

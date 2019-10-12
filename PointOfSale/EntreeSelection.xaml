@@ -5,27 +5,58 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Background="Lavender"
+      d:DesignHeight="500" d:DesignWidth="1000"
       Title="EntreeSelection">
 
-    <Grid>
-        <Grid.ColumnDefinitions>
-  
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">Brontowurst Combo</Button>
-        <Button Grid.Row="1" Grid.Column="0">Dino-Nuggets Combo</Button>
-        <Button Grid.Row="2" Grid.Column="0">Steakosaurus Burger Combo</Button>
-        <Button Grid.Row="0" Grid.Column="1">T-Rex King Burger Combo</Button>
-        <Button Grid.Row="1" Grid.Column="1">Pterodactyl Wings Combo</Button>
-        <Button Grid.Row="2" Grid.Column="1">Prehistoric PB&amp;J Combo</Button>
-        <Button Grid.Row="3" Grid.Column="0">Veloci-Wrap Combo</Button>
-    </Grid>
+    <WrapPanel>
+        <WrapPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Width" Value="200"/>
+                <Setter Property="Height" Value="200"/>
+            </Style>
+        </WrapPanel.Resources>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Brontowurst" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-01.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Dino-Nuggets" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-02.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Steakosaurus Burger" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-05.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="T-Rex King Burger" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-06.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Pterodactyl Wings" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-04.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Prehistoric PB&amp;J" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-03.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+            <DockPanel Height="185" Width="185" Background="White">
+                <TextBlock Text="Veloci-Wrap" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
+                <Image Source="Assets/DinoDiner-07.png" Width="175" Stretch="Fill" Height="175"/>
+            </DockPanel>
+        </Button>
+    </WrapPanel>
 </Page>

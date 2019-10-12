@@ -20,6 +20,9 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+        /// <summary>
+        /// Initializes form
+        /// </summary>
         public SideSelection()
         {
             InitializeComponent();

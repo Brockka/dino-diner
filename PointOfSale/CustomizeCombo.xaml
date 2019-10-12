@@ -5,23 +5,26 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      Background="Lavender"
+      d:DesignHeight="500" d:DesignWidth="800"
       Title="CustomizeCombo">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">Side</Button>
-        <Button Grid.Row="0" Grid.Column="2">Drink</Button>
-        <RadioButton Grid.Row="1" Grid.Column="0">Small</RadioButton>
-        <RadioButton Grid.Row="1" Grid.Column="1">Medium</RadioButton>
-        <RadioButton Grid.Row="1" Grid.Column="2">Large</RadioButton>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center">
+            <TextBlock FontSize="50" Text="Side" FontWeight="Black" HorizontalAlignment="Center"/>
+            <Button Height="150" Margin="10" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="100" Click="GetSide"></Button>
+            <TextBlock FontSize="50" Text="Drink" FontWeight="Black" HorizontalAlignment="Center"/>
+            <Button Height="150" Margin="10" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="100" Click="GetDrink"></Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <RadioButton Margin ="10" FontSize="50" Height="120" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Small</RadioButton>
+            <RadioButton Margin ="10" FontSize="50" Height="120" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Medium</RadioButton>
+            <RadioButton Margin ="10" FontSize="50" Height="120" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Large</RadioButton>
+        </StackPanel>
+        
     </Grid>
 </Page>

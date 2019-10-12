@@ -5,13 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PointOfSale"
       mc:Ignorable="d" 
+      Background="Lavender"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="DrinkSelection">
 
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -20,15 +21,37 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0">SodaSaurus</Button>
-        <Button Grid.Row="1" Grid.Column="0">Tyrannotea</Button>
-        <Button Grid.Row="2" Grid.Column="0">Jurrasic Java</Button>
-        <Button Grid.Row="3" Grid.Column="0">Water</Button>
-        <RadioButton Grid.Row="0" Grid.Column="1">Small</RadioButton>
-        <RadioButton Grid.Row="1" Grid.Column="1">Medium</RadioButton>
-        <RadioButton Grid.Row="2" Grid.Column="1">Large</RadioButton>
-        <Button Grid.Row="0" Grid.Column="2">Sweet/Decaf/Flavor</Button>
-        <Button Grid.Row="1" Grid.Column="2">Add Lemon</Button>
-        <Button Grid.Row="2" Grid.Column="2">Hold Ice</Button>
+        <Button Grid.Row="0" Grid.Column="0" BorderThickness="4" BorderBrush="Purple" Margin="10" Background="White" FontWeight="Black" Click="DrinkSelected" Name="SodaButton">
+            <StackPanel>
+                <TextBlock Text="Sodasaurus" HorizontalAlignment="Center"/>
+                <Image Source="Assets/DinoDiner-14.png" Width="70" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="1" Grid.Column="0" BorderThickness="4" BorderBrush="Purple" Margin="10" Background="White" FontWeight="Black" Click="DrinkSelected" Name="TeaButton">
+            <StackPanel>
+                <TextBlock Text="Tyrannotea" HorizontalAlignment="Center"/>
+                <Image Source="Assets/DinoDiner-12.png" Width="70" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="0" BorderThickness="4" BorderBrush="Purple" Margin="10" Background="White" FontWeight="Black" Click="DrinkSelected" Name="JavaButton">
+            <StackPanel>
+                <TextBlock Text="Jurrasic Java" HorizontalAlignment="Center"/>
+                <Image Source="Assets/DinoDiner-13.png" Width="70" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button Grid.Row="4" Grid.Column="0" BorderThickness="4" BorderBrush="Purple" Margin="10" Background="White" FontWeight="Black" Click="DrinkSelected" Name="WaterButton">
+            <StackPanel>
+                <TextBlock Text="Water" HorizontalAlignment="Center"/>
+                <Image Source="Assets/DinoDiner-15.png" Width="70" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <RadioButton Grid.Row="0" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Small</RadioButton>
+        <RadioButton Grid.Row="1" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Medium</RadioButton>
+        <RadioButton Grid.Row="2" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Large</RadioButton>
+        <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Sweet" Visibility="Collapsed">Sweet</Button>
+        <Button Grid.Row="1" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Lemon" Visibility="Collapsed">Add Lemon</Button>
+        <Button Grid.Row="2" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Ice">Hold Ice</Button>
+        <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Flavor" Visibility="Collapsed" Click="ChooseFlavor">Flavor</Button>
+        <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Decaf" Visibility="Collapsed">Decaf</Button>
     </Grid>
 </Page>
