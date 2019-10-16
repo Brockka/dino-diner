@@ -26,6 +26,20 @@ namespace DinoDiner.Menu
             }
         }
 
+        public string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
         /// <summary>
         /// Creates a private size field
         /// </summary>
@@ -66,45 +80,7 @@ namespace DinoDiner.Menu
         /// <returns>returns name of menu item as a string</returns>
         public override string ToString()
         {
-            string s;
-            if (Size == Size.Small)
-            {
-                s = "Small ";
-            }
-            else if (Size == Size.Medium)
-            {
-                s = "Medium ";
-            }
-            else
-            {
-                s = "Large ";
-            }
-            switch (Flavor)
-            {
-                case SodasaurusFlavor.Cherry:
-                    s += "Cherry ";
-                    break;
-                case SodasaurusFlavor.Chocolate:
-                    s += "Chocolate ";
-                    break;
-                case SodasaurusFlavor.Cola:
-                    s += "Cola ";
-                    break;
-                case SodasaurusFlavor.Orange:
-                    s += "Orange ";
-                    break;
-                case SodasaurusFlavor.Lime:
-                    s += "Lime ";
-                    break;
-                case SodasaurusFlavor.RootBeer:
-                    s += "RootBeer ";
-                    break;
-                case SodasaurusFlavor.Vanilla:
-                    s += "Vanilla ";
-                    break;
-            }
-            s += "Sodasaurus";
-            return s;
+            return $"{Size} {Flavor} Sodasaurus";   
         }
     }
 }

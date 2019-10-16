@@ -3,6 +3,7 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace DinoDiner.Menu
@@ -10,24 +11,49 @@ namespace DinoDiner.Menu
     /// <summary>
     /// Brontowurst menu item
     /// </summary>
-    public class Brontowurst : Entree, IMenuItem
+    public class Brontowurst : Entree, IMenuItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Bool representing the bun
-        /// </summary>
+        //Backing variables for ingredients
         private bool bun = true;
-        /// <summary>
-        /// Bool representing the onion
-        /// </summary>
         private bool onion = true;
-        /// <summary>
-        /// Bool representing peanut the braut
-        /// </summary>
         private bool braut = true;
-        /// <summary>
-        /// Bool representing the peppers
-        /// </summary>
         private bool peppers = true;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun) special.Add("Hold Whole Wheat Bun");
+                if (!onion) special.Add("Hold Onion");
+                if (!braut) special.Add("Brautwurst");
+                if (!peppers) special.Add("Peppers");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item

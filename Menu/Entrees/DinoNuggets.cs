@@ -3,18 +3,49 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Dino nuggets menu item class
     /// </summary>
-    public class DinoNuggets : Entree, IMenuItem
+    public class DinoNuggets : Entree, IMenuItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Number of nuggets being ordered (default 6)
-        /// </summary>
+        // Number of nuggets being ordered (default 6)
         private int nuggetCount = 6;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item

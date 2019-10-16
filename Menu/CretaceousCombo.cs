@@ -76,8 +76,26 @@ namespace DinoDiner.Menu
         /// <returns>returns name of menu item as a string</returns>
         public override string ToString()
         {
-            return (Entree.ToString() + " Combo");
+            return $"{Entree} Combo";
         }
 
+        public string Description
+        {
+            get{ return this.ToString(); }
+        }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> ingredients = new List<string>();
+                ingredients.AddRange(Entree.Special);
+                ingredients.Add(Side.ToString());
+                ingredients.AddRange(Side.Special);
+                ingredients.Add(Drink.ToString());
+                ingredients.AddRange(Drink.Special);
+                return ingredients.ToArray();
+            }
+        }
     }
 }

@@ -3,13 +3,14 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Class for Prehistoric PB & J menu item
     /// </summary>
-    public class PrehistoricPBJ: Entree, IMenuItem
+    public class PrehistoricPBJ: Entree, IMenuItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Bool representing peanut butter on the sandwich
@@ -19,6 +20,40 @@ namespace DinoDiner.Menu
         /// Bool representing jelly on the sandwich
         /// </summary>
         private bool jelly = true;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!peanutButter) special.Add("Hold Peanut Butter");
+                if (!jelly) special.Add("Hold Jelly");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -49,6 +84,8 @@ namespace DinoDiner.Menu
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -57,6 +94,8 @@ namespace DinoDiner.Menu
         public void HoldJelly()
         {
             this.jelly = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
