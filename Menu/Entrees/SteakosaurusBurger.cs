@@ -3,32 +3,56 @@
 */
 
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Steakosaurus burger menu item
     /// </summary>
-    public class SteakosaurusBurger : Entree, IMenuItem
+    public class SteakosaurusBurger : Entree, IMenuItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Bool representing the bun
-        /// </summary>
+        //Private bools representing ingredients
         private bool bun = true;
-        /// <summary>
-        /// Bool representing pickles
-        /// </summary>
         private bool pickle = true;
-        /// <summary>
-        /// Bool representing ketchup
-        /// </summary>
         private bool ketchup = true;
-        /// <summary>
-        /// Bool representing mustard
-        /// </summary>
         private bool mustard = true;
 
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!bun) special.Add("Hold Whole Wheat Bun");
+                if (!pickle) special.Add("Hold Pickle");
+                if (!ketchup) special.Add("Hold Ketchup");
+                if (!mustard) special.Add("Hold Mustard");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -62,6 +86,8 @@ namespace DinoDiner.Menu
         public void HoldBun()
         {
             this.bun = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -70,6 +96,8 @@ namespace DinoDiner.Menu
         public void HoldPickle()
         {
             this.pickle = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -78,6 +106,8 @@ namespace DinoDiner.Menu
         public void HoldKetchup()
         {
             this.ketchup = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -86,6 +116,8 @@ namespace DinoDiner.Menu
         public void HoldMustard()
         {
             this.mustard = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

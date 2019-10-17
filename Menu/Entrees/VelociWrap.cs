@@ -5,26 +5,54 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// VelociWrap menu item
     /// </summary>
-    public class VelociWrap : Entree, IMenuItem
+    public class VelociWrap : Entree, IMenuItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// bool representing dressing
-        /// </summary>
+        //private bools for ingredients
         private bool dressing = true;
-        /// <summary>
-        /// bool representing lettuce
-        /// </summary>
         private bool lettuce = true;
-        /// <summary>
-        /// bool representing the cheese
-        /// </summary>
         private bool cheese = true;
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!lettuce) special.Add("Romaine Lettuce");
+                if (!dressing) special.Add("Ceasar Dressing");
+                if (!cheese) special.Add("Parmesan Cheese");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -58,6 +86,8 @@ namespace DinoDiner.Menu
         public void HoldLettuce()
         {
             this.lettuce = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -66,6 +96,8 @@ namespace DinoDiner.Menu
         public void HoldDressing()
         {
             this.dressing = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -74,6 +106,8 @@ namespace DinoDiner.Menu
         public void HoldCheese()
         {
             this.cheese = false;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

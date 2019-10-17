@@ -5,14 +5,47 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// MeteorMacAndCheese menu item
     /// </summary>
-    public class MeteorMacAndCheese : Side, IMenuItem
+    public class MeteorMacAndCheese : Side, IMenuItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
         /// </summary>
@@ -37,6 +70,9 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
                 switch (size)
                 {
                     case Size.Large:
@@ -71,21 +107,7 @@ namespace DinoDiner.Menu
         /// <returns>returns name of menu item</returns>
         public override string ToString()
         {
-            string s;
-            if (Size == Size.Small)
-            {
-                s = "Small ";
-            }
-            else if (Size == Size.Medium)
-            {
-                s = "Medium ";
-            }
-            else
-            {
-                s = "Large ";
-            }
-            s += "Meteor Mac and Cheese";
-            return s;
+            return $"{Size} Meteor Mac and Cheese";
         }
 
     }

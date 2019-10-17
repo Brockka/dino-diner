@@ -36,12 +36,12 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Property to get description
         /// </summary>
-        public string Description { get; }
+        public abstract string Description { get; }
 
         /// <summary>
         /// Property to get the modifications to the order (eg "Hold Mayo")
         /// </summary>
-        public string[] Special { get; }
+        public abstract string[] Special { get; }
 
     }
 }

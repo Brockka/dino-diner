@@ -4,11 +4,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 
 namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink, IMenuItem
+    /// <summary>
+    /// Sodasaurus menu item
+    /// </summary>
+    public class Sodasaurus : Drink, IMenuItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Class for sodasaurus
@@ -26,12 +30,30 @@ namespace DinoDiner.Menu
             }
         }
 
-        public string Description
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets description of menu item
+        /// </summary>
+        public override string Description
         {
             get { return this.ToString(); }
         }
 
-        public string[] Special
+        /// <summary>
+        /// Gets special modifications to the order
+        /// </summary>
+        public override string[] Special
         {
             get
             {
@@ -48,6 +70,8 @@ namespace DinoDiner.Menu
         {
             set
             {
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
                 size = value;
                 switch (size)
                 {

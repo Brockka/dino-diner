@@ -4,21 +4,24 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 
 namespace DinoDiner.Menu
 {
-    public class Tyrannotea : Drink, IMenuItem
+    /// <summary>
+    /// Class for Tyrannotea
+    /// </summary>
+    public class Tyrannotea : Drink, IMenuItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets the whether there is lemon in the tea
         /// </summary>
         public bool Lemon { get; set; }
 
-        /// <summary>
-        /// Creates a private sweet field
-        /// </summary>
+        //private backing variable
         private bool sweet;
+
         /// <summary>
         /// Gets and sets if the tea is sweetened or unsweetened
         /// </summary>
@@ -26,8 +29,11 @@ namespace DinoDiner.Menu
                 get { return sweet; }
                 set{
                     sweet = value;
-                    switch (Size)
-                    {
+                    NotifyOfPropertyChange("Description");
+                    NotifyOfPropertyChange("Price");
+                    NotifyOfPropertyChange("Special");
+                switch (Size)
+                        {
                         case Size.Large:
                             if (sweet)
                             {
@@ -58,11 +64,45 @@ namespace DinoDiner.Menu
                                 Calories = 8;
                             }
                             break;
-                }
+                         }
                 
                 }
 
             }
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Lemon");
+                if (Sweet) special.Add("Sweet");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -92,6 +132,8 @@ namespace DinoDiner.Menu
         {
             set
             {
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
                 size = value;
                 switch (size)
                 {
@@ -145,6 +187,8 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             Lemon = true;
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -153,25 +197,11 @@ namespace DinoDiner.Menu
         /// <returns>returns name of menu item as a string</returns>
         public override string ToString()
         {
-            string s;
-            if (Size == Size.Small)
-            {
-                s = "Small ";
-            }
-            else if (Size == Size.Medium)
-            {
-                s = "Medium ";
-            }
-            else
-            {
-                s = "Large ";
-            }
             if (Sweet)
             {
-                s += "Sweet ";
+                return $"{Size} Sweet Tyrannotea";
             }
-            s += "Tyrannotea";
-            return s;
+            return $"{Size} Tyrannotea";
         }
     }
 }

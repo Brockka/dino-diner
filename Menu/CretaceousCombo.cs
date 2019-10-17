@@ -9,13 +9,29 @@ using DinoDiner.Menu;
 
 namespace DinoDiner.Menu
 {
+    /// <summary>
+    /// Combo menu item
+    /// </summary>
     public class CretaceousCombo : IMenuItem
     {
+        /// <summary>
+        /// Entree component of combo
+        /// </summary>
         public Entree Entree { get; set; }
+
+        /// <summary>
+        /// Drink component of combo
+        /// </summary>
         public Drink Drink { get; set; }
+
+        /// <summary>
+        /// Side component of combo
+        /// </summary>
         public Side Side { get; set; }
 
+        //Backing variable for size
         private Size size = Size.Small;
+        //Size property
         public Size Size
         {
             get { return size; }
@@ -63,6 +79,10 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// CretatceousCombo constructor
+        /// </summary>
+        /// <param name="entree">The entree being chosen</param>
         public CretaceousCombo(Entree entree)
         {
             Entree = entree;
@@ -79,11 +99,17 @@ namespace DinoDiner.Menu
             return $"{Entree} Combo";
         }
 
+        /// <summary>
+        /// Gets description of combo
+        /// </summary>
         public string Description
         {
             get{ return this.ToString(); }
         }
 
+        /// <summary>
+        /// Gets any special modifications to the order
+        /// </summary>
         public string[] Special
         {
             get

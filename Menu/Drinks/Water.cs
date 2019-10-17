@@ -4,15 +4,50 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Water : Drink, IMenuItem
+    public class Water : Drink, IMenuItem, INotifyPropertyChanged
     {
         /// <summary>
         /// Gets and sets whether there is lemon or not
         /// </summary>
         public bool Lemon{ get; set; }
+
+
+        /// <summary>
+        /// The PropertyChanged event handler; notifies of changes to the 
+        /// Price, Description and Special properties
+        /// </summary>
+        public override event PropertyChangedEventHandler PropertyChanged;
+
+        //Helper function for notifying of property changes
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        /// <summary>
+        /// Gets the description
+        /// </summary>
+        public override string Description
+        {
+            get { return this.ToString(); }
+        }
+
+        /// <summary>
+        /// Gets the special modifications to the order if any
+        /// </summary>
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (Lemon) special.Add("Lemon");
+                return special.ToArray();
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -38,6 +73,7 @@ namespace DinoDiner.Menu
         {
             set
             {
+                NotifyOfPropertyChange("Description");
                 size = value;
             }
             get { return size; }
@@ -58,8 +94,11 @@ namespace DinoDiner.Menu
         /// </summary>
         public void AddLemon()
         {
+            NotifyOfPropertyChange("Special");
+            NotifyOfPropertyChange("Ingredients");
             Lemon = true;
         }
+
 
         /// <summary>
         /// Overriden ToString() for Water class
@@ -67,21 +106,7 @@ namespace DinoDiner.Menu
         /// <returns>returns name of menu item as a string</returns>
         public override string ToString()
         {
-            string s;
-            if (Size == Size.Small)
-            {
-                s = "Small ";
-            }
-            else if (Size == Size.Medium)
-            {
-                s = "Medium ";
-            }
-            else
-            {
-                s = "Large ";
-            }
-            s += "Water";
-            return s;
+            return $"{Size} Water";
         }
     }
 }

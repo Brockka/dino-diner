@@ -12,13 +12,8 @@ namespace DinoDiner.Menu
     /// </summary>
     public class PrehistoricPBJ: Entree, IMenuItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// Bool representing peanut butter on the sandwich
-        /// </summary>
+        //Backing variables for ingredients
         private bool peanutButter = true;
-        /// <summary>
-        /// Bool representing jelly on the sandwich
-        /// </summary>
         private bool jelly = true;
 
         /// <summary>
