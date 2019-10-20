@@ -13,7 +13,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets the price
         /// </summary>
-        public double Price { get; set; }
+        public virtual double Price { get; set; }
 
         /// <summary>
         /// Gets and sets whether there is ice or not
@@ -28,7 +28,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets the ingredients list
         /// </summary>
-        public abstract List<string> Ingredients { get; }
+        public virtual List<string> Ingredients { get; }
 
         /// <summary>
         /// Sets Ice to false
@@ -42,17 +42,17 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets or sets the size
         /// </summary>
-        public abstract Size Size { get; set; }
+        public virtual Size Size { get; set; }
 
         /// <summary>
         /// Property to get description
         /// </summary>
-        public abstract string Description { get; }
+        public virtual string Description { get; }
 
         /// <summary>
         /// Property to get the modifications to the order (eg "Hold Mayo")
         /// </summary>
-        public abstract string[] Special { get; }
+        public virtual string[] Special { get; }
 
         /// <summary>
         /// The PropertyChanged event handler; notifies of changes to the 
