@@ -12,8 +12,7 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Order
     {
-        //Backing variable
-        private ObservableCollection<IOrderItem> items;
+
         /// <summary>
         /// Items that have been added to the order
         /// </summary>
