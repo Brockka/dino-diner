@@ -80,7 +80,6 @@ namespace DinoDiner.Menu
         {
             this.peanutButter = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -90,7 +89,6 @@ namespace DinoDiner.Menu
         {
             this.jelly = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

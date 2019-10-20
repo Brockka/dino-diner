@@ -23,13 +23,14 @@ namespace DinoDiner.Menu
         /// <summary>
         /// Gets and sets whether the drink is decaf
         /// </summary>
-        public bool Decaf { 
-            get { return decaf; } 
-            set {
-                this.decaf = value;
-                NotifyOfPropertyChange("Special");
-                NotifyOfPropertyChange("Descripition");
-            } 
+        public bool Decaf
+        {
+            get { return decaf; }
+            set
+            {
+                NotifyOfPropertyChange("Description");
+                decaf= value;
+            }
         }
 
         /// <summary>
@@ -61,8 +62,7 @@ namespace DinoDiner.Menu
             {
                 List<string> special = new List<string>();
                 if (RoomForCream) special.Add("Leave Room For Cream");
-                if (Decaf) special.Add("Decaf");
-                if (Ice) special.Add("Ice");
+                if (Ice) special.Add("Add Ice");
                 return special.ToArray();
             }
         }
@@ -122,7 +122,6 @@ namespace DinoDiner.Menu
         {
             RoomForCream = true;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -132,7 +131,6 @@ namespace DinoDiner.Menu
         {
             Ice = true;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -147,5 +145,7 @@ namespace DinoDiner.Menu
             }
             return $"{Size} Jurassic Java";
         }
+
+
     }
 }

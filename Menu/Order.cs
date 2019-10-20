@@ -22,7 +22,12 @@ namespace DinoDiner.Menu
         /// </summary>
         public double SubtotalCost {
             get {
-                if (SubtotalCost > 0) { return SubtotalCost; }
+                double subtotal = 0;
+                foreach(IOrderItem item in Items)
+                {
+                    subtotal += item.Price;
+                }
+                if (subtotal > 0) { return subtotal; }
                 else { return 0; }
             }
         }
@@ -35,11 +40,11 @@ namespace DinoDiner.Menu
         /// <summary>
         /// The additional costs associated with sales tax
         /// </summary>
-        public double SalesTaxCost { get; }
+        public double SalesTaxCost { get { return SubtotalCost * SalesTaxRate; } }
 
         /// <summary>
         /// The total cost of the order including the price of the items and sales tax
         /// </summary>
-        public double TotalCost { get; }
+        public double TotalCost { get { return SubtotalCost + SalesTaxCost; } }
     }
 }

@@ -102,7 +102,6 @@ namespace DinoDiner.Menu
         {
             this.bun = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -112,7 +111,6 @@ namespace DinoDiner.Menu
         {
             this.onion = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -122,7 +120,6 @@ namespace DinoDiner.Menu
         {
             this.tomato = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -132,7 +129,6 @@ namespace DinoDiner.Menu
         {
             this.lettuce = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -142,7 +138,6 @@ namespace DinoDiner.Menu
         {
             this.pickle = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -152,7 +147,6 @@ namespace DinoDiner.Menu
         {
             this.ketchup = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -162,7 +156,6 @@ namespace DinoDiner.Menu
         {
             this.mayo = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -172,7 +165,6 @@ namespace DinoDiner.Menu
         {
             this.mustard = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

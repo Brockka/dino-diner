@@ -35,8 +35,8 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual void HoldIce()
         {
-            Ice = false;
             NotifyOfPropertyChange("Special");
+            Ice = false;
         }
 
         /// <summary>

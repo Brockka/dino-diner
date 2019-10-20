@@ -49,8 +49,7 @@ namespace DinoDiner.Menu
                 List<string> special = new List<string>();
                 if (!bun) special.Add("Hold Whole Wheat Bun");
                 if (!onion) special.Add("Hold Onion");
-                if (!braut) special.Add("Brautwurst");
-                if (!peppers) special.Add("Peppers");
+                if (!peppers) special.Add("Hold Peppers");
                 return special.ToArray();
             }
         }
@@ -87,7 +86,6 @@ namespace DinoDiner.Menu
         {
             this.bun = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -97,7 +95,6 @@ namespace DinoDiner.Menu
         {
             this.peppers = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -107,7 +104,6 @@ namespace DinoDiner.Menu
         {
             this.onion = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

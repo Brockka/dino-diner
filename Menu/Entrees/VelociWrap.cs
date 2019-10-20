@@ -47,9 +47,9 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (!lettuce) special.Add("Romaine Lettuce");
-                if (!dressing) special.Add("Ceasar Dressing");
-                if (!cheese) special.Add("Parmesan Cheese");
+                if (!lettuce) special.Add("Hold Romaine Lettuce");
+                if (!dressing) special.Add("Hold Caesar Dressing");
+                if (!cheese) special.Add("Hold Parmesan Cheese");
                 return special.ToArray();
             }
         }
@@ -87,7 +87,6 @@ namespace DinoDiner.Menu
         {
             this.lettuce = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -97,7 +96,6 @@ namespace DinoDiner.Menu
         {
             this.dressing = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>
@@ -107,7 +105,6 @@ namespace DinoDiner.Menu
         {
             this.cheese = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
         /// <summary>

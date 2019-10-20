@@ -44,7 +44,8 @@ namespace DinoDiner.Menu
             get
             {
                 List<string> special = new List<string>();
-                if (Lemon) special.Add("Lemon");
+                if (Lemon) special.Add("Add Lemon");
+                if (!Ice) special.Add("Hold Ice");
                 return special.ToArray();
             }
         }
@@ -95,7 +96,6 @@ namespace DinoDiner.Menu
         public void AddLemon()
         {
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
             Lemon = true;
         }
 
@@ -107,6 +107,15 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Size} Water";
+        }
+
+        /// <summary>
+        /// Holds ice
+        /// </summary>
+        public override void HoldIce()
+        {
+            NotifyOfPropertyChange("Special");
+            Ice = false;
         }
     }
 }

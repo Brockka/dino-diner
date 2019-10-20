@@ -14,10 +14,18 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Sodasaurus : Drink, IMenuItem, INotifyPropertyChanged
     {
+
+        //Private Backing variable
+        private SodasaurusFlavor flavor;
         /// <summary>
-        /// Class for sodasaurus
+        /// Flavor property
         /// </summary>
-        public SodasaurusFlavor Flavor;
+        public SodasaurusFlavor Flavor {
+            get { return this.flavor; }
+            set { flavor = value;
+                NotifyOfPropertyChange("Description");
+            }
+        }
 
         /// <summary>
         /// Overrides the base class list of ingredients with the ones specific to this menu item
@@ -105,6 +113,15 @@ namespace DinoDiner.Menu
         public override string ToString()
         {
             return $"{Size} {Flavor} Sodasaurus";   
+        }
+
+        /// <summary>
+        /// Holds ice
+        /// </summary>
+        public override void HoldIce()
+        {
+            NotifyOfPropertyChange("Special");
+            Ice = false;
         }
     }
 }
