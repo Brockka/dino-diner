@@ -44,8 +44,8 @@
                 <Image Source="Assets/DinoDiner-11.png" Width="100" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <RadioButton Grid.Row="0" Grid.Column="2" FontSize="30" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Small</RadioButton>
-        <RadioButton Grid.Row="1" Grid.Column="2" FontSize="30" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Medium</RadioButton>
-        <RadioButton Grid.Row="2" Grid.Column="2" FontSize="30" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Large</RadioButton>
+        <RadioButton Grid.Row="0" Grid.Column="2" FontSize="30" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" Click="OnSelectSmall">Small</RadioButton>
+        <RadioButton Grid.Row="1" Grid.Column="2" FontSize="30" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" Click="OnSelectMedium">Medium</RadioButton>
+        <RadioButton Grid.Row="2" Grid.Column="2" FontSize="30" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" Click="OnSelectLarge">Large</RadioButton>
     </Grid>
 </Page>

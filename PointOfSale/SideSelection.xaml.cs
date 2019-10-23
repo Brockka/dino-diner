@@ -29,18 +29,54 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        public SideSelection(Side side)
+        {
+            Side = side;
+            InitializeComponent();
+        }
+
+        public Side Side {get; set;}
+
+        private void SelectSide(Side side)
+        {
+            if (DataContext is Order order)
+            {
+                order.Items.Add(side);
+                this.Side = side;
+            }
+        }
+
+        private void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if(Side!= null)
+            this.Side.Size = size;
+        }
+
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
-            Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
+            SelectSide(new Fryceritops());
             BtnAddFryceritops.IsEnabled = false;
             BtnAddTriceritots.IsEnabled = false;  
         }
 
         public void AddTriceritots(object sender, RoutedEventArgs args)
         {
-            Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
+            SelectSide(new Triceritots());
+        }
+
+        protected void OnSelectSmall(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Small);
+        }
+
+        protected void OnSelectMedium(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Medium);
+        }
+
+        protected void OnSelectLarge(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Large);
         }
     }
 }

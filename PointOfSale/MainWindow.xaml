@@ -14,7 +14,6 @@
         <local:OrderControl DockPanel.Dock="Right" Width="200" Background="LightSteelBlue"  x:Name="OrderList"/>
         <Frame Source="MenuCategorySelection.xaml" 
                LoadCompleted="OnLoadCompleted"
-               DataContextChanged="OnDataContextChanged"
                Name="OrderInterface"/>
     </DockPanel>
 </Window>
