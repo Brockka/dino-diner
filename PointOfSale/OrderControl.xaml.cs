@@ -35,5 +35,34 @@ namespace PointOfSale
                 NavigationService?.Navigate(new SideSelection(side));
             }
         }
+
+        public void OnDataContextChanged(Object sender, SelectionChangedEventArgs args)
+        {
+            MountItemListener();
+        }
+
+        public void OnCollectionChanged(object sender, EventArgs args)
+        {
+            //CollectionViewSource.GetDefaultView(OrderItems.Items).MoveCurrentToLast();
+        }
+
+        private void MountItemListener()
+        {
+            if(DataContext is Order order)
+            {
+                order.Items.CollectionChanged += OnCollectionChanged;
+            }
+        }
+
+        private void OnItemRemoval(Object sender, RoutedEventArgs args)
+        {
+            if(DataContext is Order order)
+            {
+                if(sender is FrameworkElement element)
+                    if (element.DataContext is IOrderItem item)
+                        order.Items.Remove(item);
+            }
+            
+        }
     }
 }

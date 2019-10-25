@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace DinoDiner.Menu
@@ -43,5 +44,6 @@ namespace DinoDiner.Menu
         /// </summary>
         public virtual string[] Special { get; }
 
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

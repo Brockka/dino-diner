@@ -5,13 +5,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// Abstract class for all Entrees
     /// </summary>
-    public abstract class Entree : IMenuItem, IOrderItem
+    public abstract class Entree : IMenuItem, IOrderItem 
     {
         /// <summary>
         /// Gets and sets the price
@@ -37,5 +38,7 @@ namespace DinoDiner.Menu
         /// Property to get the modifications to the order (eg "Hold Mayo")
         /// </summary>
         public virtual string[] Special { get; }
+
+        public abstract event PropertyChangedEventHandler PropertyChanged;
     }
 }

@@ -14,12 +14,20 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <TextBox Text="Order" Grid.Row="0"/>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}" IsSynchronizedWithCurrentItem="True" Name="OrderItems">
+        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items, UpdateSourceTrigger =PropertyChanged}"
+                 IsSynchronizedWithCurrentItem="True" Name="OrderItems">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=Description}"/>
-                        <ListBox ItemsSource="{Binding Path=Special}"/>
+                    <StackPanel Width="190">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="15"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Path=Description}"/>
+                            <Button Click="OnItemRemoval" Background="Red" Foreground="White" Grid.Column="1">X</Button>
+                        </Grid>
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
                     </StackPanel>
                </DataTemplate>
             </ListBox.ItemTemplate>
@@ -27,7 +35,7 @@
         <Border Grid.Row="2">
             <StackPanel Orientation="Horizontal">
                 <TextBox Text="Price"/>
-                <TextBox Text="$____"/>
+                <TextBox Text="x"/>
             </StackPanel>
         </Border>
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
