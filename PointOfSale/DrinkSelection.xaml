@@ -45,13 +45,14 @@
                 <Image Source="Assets/DinoDiner-15.png" Width="70" HorizontalAlignment="Center"/>
             </StackPanel>
         </Button>
-        <RadioButton Grid.Row="0" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Small</RadioButton>
-        <RadioButton Grid.Row="1" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Medium</RadioButton>
-        <RadioButton Grid.Row="2" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Large</RadioButton>
-        <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Sweet" Visibility="Collapsed">Sweet</Button>
-        <Button Grid.Row="1" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Lemon" Visibility="Collapsed">Add Lemon</Button>
-        <Button Grid.Row="2" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Ice">Hold Ice</Button>
+        <RadioButton Grid.Row="0" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" Click="MakeSizeSmall">Small</RadioButton>
+        <RadioButton Grid.Row="1" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" Click="MakeSizeMedium">Medium</RadioButton>
+        <RadioButton Grid.Row="2" Grid.Column="1" FontWeight="Black" Margin="20" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" Click="MakeSizeLarge">Large</RadioButton>
+        <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Sweet" Visibility="Collapsed" Click="MakeSweet">Sweet</Button>
+        <Button Grid.Row="1" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Lemon" Visibility="Collapsed" Click="AddLemon">Add Lemon</Button>
+        <Button Grid.Row="2" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Ice" Click="RemoveIce">Hold Ice</Button>
         <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Flavor" Visibility="Collapsed" Click="ChooseFlavor">Flavor</Button>
-        <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Decaf" Visibility="Collapsed">Decaf</Button>
+        <Button Grid.Row="0" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Decaf" Visibility="Collapsed" Click="MakeDecaf">Decaf</Button>
+        <Button Grid.Row="1" Grid.Column="2" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20" Name="Cream" Visibility="Collapsed" Click="LeaveRoomForCream">Cream</Button>
     </Grid>
 </Page>

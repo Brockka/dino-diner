@@ -37,6 +37,7 @@ namespace PointOfSale
         {
             if (sender.Equals(SodaButton))
             {
+                Cream.Visibility = Visibility.Collapsed;
                 Sweet.Visibility = Visibility.Collapsed;
                 Lemon.Visibility = Visibility.Collapsed;
                 Decaf.Visibility = Visibility.Collapsed;
@@ -44,6 +45,7 @@ namespace PointOfSale
             }
             if (sender.Equals(TeaButton))
             {
+                Cream.Visibility = Visibility.Collapsed;
                 Flavor.Visibility = Visibility.Collapsed;
                 Decaf.Visibility = Visibility.Collapsed;
                 Sweet.Visibility = Visibility.Visible;
@@ -55,9 +57,11 @@ namespace PointOfSale
                 Lemon.Visibility = Visibility.Collapsed;
                 Flavor.Visibility = Visibility.Collapsed;
                 Decaf.Visibility = Visibility.Visible;
+                Cream.Visibility = Visibility.Visible;
             }
             if (sender.Equals(WaterButton))
             {
+                Cream.Visibility = Visibility.Collapsed;
                 Sweet.Visibility = Visibility.Collapsed;
                 Flavor.Visibility = Visibility.Collapsed;
                 Decaf.Visibility = Visibility.Collapsed;
@@ -72,6 +76,96 @@ namespace PointOfSale
         /// <param name="sender">flavor button being pushed</param>
         /// <param name="args"></param>
         private void ChooseFlavor(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Sets size to small
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void MakeSizeSmall(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Sets size to medium
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void MakeSizeMedium(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Sets size to large
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void MakeSizeLarge(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Makes tyrannotea sweet
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void MakeSweet(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Adds Lemon to drink
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void AddLemon(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Holds ice from drink
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void RemoveIce(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Adds ice from drink
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void AddIce(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Makes drink decaf
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void MakeDecaf(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new FlavorSelection());
+        }
+
+        /// <summary>
+        /// Leaves room for cream in Jurassic Java
+        /// </summary>
+        /// <param name="sender">flavor button being pushed</param>
+        /// <param name="args"></param>
+        private void LeaveRoomForCream(object sender, RoutedEventArgs args)
         {
             NavigationService.Navigate(new FlavorSelection());
         }
