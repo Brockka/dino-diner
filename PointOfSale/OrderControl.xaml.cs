@@ -28,11 +28,20 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Allows selected item to be modified
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         private void OnSelectionChanged(Object sender, SelectionChangedEventArgs args)
         {
             if (OrderItems.SelectedItem is Side side)
             {
                 NavigationService?.Navigate(new SideSelection(side));
+            }
+            if (OrderItems.SelectedItem is Drink drink)
+            {
+                NavigationService?.Navigate(new DrinkSelection(drink));
             }
         }
 

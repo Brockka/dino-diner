@@ -27,15 +27,10 @@ namespace PointOfSale
         public MainWindow()
         {
             InitializeComponent();
-            OrderControl OrderControl= new OrderControl();
-            OrderControl.NavigationService = OrderInterface.NavigationService;
-            Order order = (Order)DataContext;
-            order.Items.Add(new Fryceritops());
-            Tyrannotea tea = new Tyrannotea();
-            tea.Sweet = true;
-            tea.HoldIce();
-            tea.Size = DinoDiner.Menu.Size.Medium;
-            order.Items.Add(tea);
+            Order order = new Order();
+            DataContext = order;
+
+            OrderList.NavigationService = OrderInterface.NavigationService;
         }
 
         public void OnLoadCompleted(object sender, NavigationEventArgs args)

@@ -13,9 +13,14 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBox Text="Order" Grid.Row="0"/>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items, UpdateSourceTrigger =PropertyChanged}"
-                 IsSynchronizedWithCurrentItem="True" Name="OrderItems">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBox Text="Order" FontWeight="Bold" TextAlignment="Right" BorderBrush="White"/>
+        <TextBox Text="#" FontWeight="Bold" Grid.Column="1" Margin="0,0,0,0" BorderBrush="White"/>
+        <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}"
+                 SelectionChanged="OnSelectionChanged" IsSynchronizedWithCurrentItem="True" Name="OrderItems">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="190">
@@ -29,15 +34,14 @@
                         </Grid>
                         <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
                     </StackPanel>
-               </DataTemplate>
+                </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Border Grid.Row="2">
-            <StackPanel Orientation="Horizontal">
-                <TextBox Text="Price"/>
-                <TextBox Text="x"/>
-            </StackPanel>
-        </Border>
+        <TextBox Text="Subtotal $ " FontWeight="Bold" TextAlignment="Right" Grid.Row="2"/>
+        <TextBox Text="{Binding Path=SubtotalCost, Mode=OneWay}" FontWeight="Bold" Grid.Row="2" Grid.Column="1"/>
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
+
+        <Button Grid.Row="3">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="1">Pay</Button>
     </Grid>
 </UserControl>

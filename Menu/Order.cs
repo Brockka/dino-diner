@@ -34,8 +34,10 @@ namespace DinoDiner.Menu
                 {
                     subtotal += item.Price;
                 }
-                if (subtotal > 0) { return subtotal; }
-                else { return 0; }
+                if (subtotal > 0)
+                    return subtotal;
+                else 
+                    return 0;
             }
         }
 
@@ -65,6 +67,7 @@ namespace DinoDiner.Menu
 
         private void OnCollectionChanged(object sender, EventArgs args)
         {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));

@@ -20,12 +20,12 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Button Grid.Row="0" Grid.Column="0" Margin="20" Background="Red" FontWeight="UltraBlack" FontSize="20">Cherry</Button>
-        <Button Grid.Row="1" Grid.Column="0" Margin="20" Background="Chocolate" FontWeight="UltraBlack" FontSize="20">Chocolate</Button>
-        <Button Grid.Row="2" Grid.Column="0" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20">Cola</Button>
-        <Button Grid.Row="0" Grid.Column="1" Margin="20" Background="LimeGreen" FontWeight="UltraBlack" FontSize="20">Lime</Button>
-        <Button Grid.Row="1" Grid.Column="1" Margin="20" Background="Orange" FontWeight="UltraBlack" FontSize="20">Orange</Button>
-        <Button Grid.Row="2" Grid.Column="1" Margin="20" Background="RosyBrown" FontWeight="UltraBlack" FontSize="20">Rootbeer</Button>
-        <Button Grid.Row="3" Grid.Column="0" Margin="20" Background="NavajoWhite" FontWeight="UltraBlack" FontSize="20">Vanilla</Button>
+        <Button Click="MakeCherry" Grid.Row="0" Grid.Column="0" Margin="20" Background="Red" FontWeight="UltraBlack" FontSize="20">Cherry</Button>
+        <Button Click="MakeChocolate" Grid.Row="1" Grid.Column="0" Margin="20" Background="Chocolate" FontWeight="UltraBlack" FontSize="20">Chocolate</Button>
+        <Button Click="MakeCola" Grid.Row="2" Grid.Column="0" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="20">Cola</Button>
+        <Button Click="MakeLime" Grid.Row="0" Grid.Column="1" Margin="20" Background="LimeGreen" FontWeight="UltraBlack" FontSize="20">Lime</Button>
+        <Button Click="MakeOrange" Grid.Row="1" Grid.Column="1" Margin="20" Background="Orange" FontWeight="UltraBlack" FontSize="20">Orange</Button>
+        <Button Click="MakeRootbeer" Grid.Row="2" Grid.Column="1" Margin="20" Background="RosyBrown" FontWeight="UltraBlack" FontSize="20">Rootbeer</Button>
+        <Button Click="MakeVanilla" Grid.Row="3" Grid.Column="0" Margin="20" Background="NavajoWhite" FontWeight="UltraBlack" FontSize="20">Vanilla</Button>
     </Grid>
 </Page>

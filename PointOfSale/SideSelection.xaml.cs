@@ -29,14 +29,25 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Constructor that takes side as parameter
+        /// </summary>
+        /// <param name="side">side being set to</param>
         public SideSelection(Side side)
         {
             Side = side;
             InitializeComponent();
         }
 
+        /// <summary>
+        /// The current side
+        /// </summary>
         public Side Side {get; set;}
 
+        /// <summary>
+        /// The side that is added to the order
+        /// </summary>
+        /// <param name="side">Side being selected</param>
         private void SelectSide(Side side)
         {
             if (DataContext is Order order)
@@ -46,34 +57,82 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Changes the size of the side
+        /// </summary>
+        /// <param name="size"></param>
         private void SelectSize(DinoDiner.Menu.Size size)
         {
             if(Side!= null)
             this.Side.Size = size;
+            NavigationService.Navigate(new MenuCategorySelection());
         }
 
+        /// <summary>
+        /// Adds new side item to current order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void AddFryceritops(object sender, RoutedEventArgs args)
         {
             SelectSide(new Fryceritops());
-            BtnAddFryceritops.IsEnabled = false;
-            BtnAddTriceritots.IsEnabled = false;  
         }
 
+        /// <summary>
+        /// Adds new side item to current order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void AddMacAndCheese(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MeteorMacAndCheese());
+        }
+
+        /// <summary>
+        /// Adds new side item to current order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        public void AddMezzorellaSticks(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MezzorellaSticks());
+        }
+
+        /// <summary>
+        /// Adds new side item to current order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void AddTriceritots(object sender, RoutedEventArgs args)
         {
             SelectSide(new Triceritots());
         }
 
+        /// <summary>
+        /// Changes selected side to small
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectSmall(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Small);
         }
 
+        /// <summary>
+        /// Changes selected side to medium
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectMedium(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Medium);
         }
 
+        /// <summary>
+        /// Changes selected side to large
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         protected void OnSelectLarge(object sender, RoutedEventArgs args)
         {
             SelectSize(DinoDiner.Menu.Size.Large);

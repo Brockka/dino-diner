@@ -16,43 +16,43 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="AddBrontowurst">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Brontowurst" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-01.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="AddDinoNuggets">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Dino-Nuggets" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-02.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="AddSteakosaurusBurger">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Steakosaurus Burger" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-05.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="AddTRexKingBurger">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="T-Rex King Burger" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-06.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="AddPterodactylWings">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Pterodactyl Wings" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-04.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="AddPBJ">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Prehistoric PB&amp;J" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-03.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="AddVelociWrap">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Veloci-Wrap" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-07.png" Width="175" Stretch="Fill" Height="175"/>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -29,7 +30,62 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Dynamically displays different button options
+        /// Constructor that takes drink as parameter
+        /// </summary>
+        /// <param name="side">drink being set to</param>
+        public DrinkSelection(Drink drink)
+        {
+            Drink = drink;
+            InitializeComponent();
+            if (Drink is Sodasaurus)
+            {
+                Cream.Visibility = Visibility.Collapsed;
+                Sweet.Visibility = Visibility.Collapsed;
+                Lemon.Visibility = Visibility.Collapsed;
+                Decaf.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Collapsed;
+                Flavor.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
+            }
+            if (Drink is Tyrannotea)
+            {
+                Cream.Visibility = Visibility.Collapsed;
+                Flavor.Visibility = Visibility.Collapsed;
+                Decaf.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Collapsed;
+                Sweet.Visibility = Visibility.Visible;
+                Lemon.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
+            }
+            if (Drink is JurassicJava)
+            {
+                Sweet.Visibility = Visibility.Collapsed;
+                Lemon.Visibility = Visibility.Collapsed;
+                Flavor.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Visible;
+                Decaf.Visibility = Visibility.Visible;
+                Cream.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
+            }
+            if (Drink is Water)
+            {
+                Cream.Visibility = Visibility.Collapsed;
+                Sweet.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Collapsed;
+                Flavor.Visibility = Visibility.Collapsed;
+                Decaf.Visibility = Visibility.Collapsed;
+                Lemon.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
+            }
+        }
+
+        /// <summary>
+        /// The current drink
+        /// </summary>
+        public Drink Drink { get; set; }
+
+        /// <summary>
+        /// Dynamically displays different button options and adds drink
         /// </summary>
         /// <param name="sender">button that was pushed</param>
         /// <param name="args"></param>
@@ -37,35 +93,47 @@ namespace PointOfSale
         {
             if (sender.Equals(SodaButton))
             {
+                SelectDrink(new Sodasaurus());
                 Cream.Visibility = Visibility.Collapsed;
                 Sweet.Visibility = Visibility.Collapsed;
                 Lemon.Visibility = Visibility.Collapsed;
                 Decaf.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Collapsed;
                 Flavor.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
             }
             if (sender.Equals(TeaButton))
             {
+                SelectDrink(new Tyrannotea());
                 Cream.Visibility = Visibility.Collapsed;
                 Flavor.Visibility = Visibility.Collapsed;
                 Decaf.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Collapsed;
                 Sweet.Visibility = Visibility.Visible;
                 Lemon.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
             }
             if (sender.Equals(JavaButton))
             {
+                SelectDrink(new JurassicJava());
                 Sweet.Visibility = Visibility.Collapsed;
                 Lemon.Visibility = Visibility.Collapsed;
                 Flavor.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Visible;
                 Decaf.Visibility = Visibility.Visible;
                 Cream.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
             }
             if (sender.Equals(WaterButton))
             {
+                SelectDrink(new Water());
                 Cream.Visibility = Visibility.Collapsed;
                 Sweet.Visibility = Visibility.Collapsed;
+                AddIcebtn.Visibility = Visibility.Collapsed;
                 Flavor.Visibility = Visibility.Collapsed;
                 Decaf.Visibility = Visibility.Collapsed;
                 Lemon.Visibility = Visibility.Visible;
+                Ice.Visibility = Visibility.Visible;
             }
 
         }
@@ -77,8 +145,19 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void ChooseFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            NavigationService.Navigate(new FlavorSelection(Drink as Sodasaurus));
         }
+
+        /// <summary>
+        /// Changes the size of the drink
+        /// </summary>
+        /// <param name="size">size being set</param>
+        private void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if (Drink != null)
+                this.Drink.Size = size;
+        }
+
 
         /// <summary>
         /// Sets size to small
@@ -87,7 +166,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void MakeSizeSmall(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            SelectSize(DinoDiner.Menu.Size.Small);
         }
 
         /// <summary>
@@ -97,7 +176,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void MakeSizeMedium(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            SelectSize(DinoDiner.Menu.Size.Medium);
         }
 
         /// <summary>
@@ -107,7 +186,7 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void MakeSizeLarge(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            SelectSize(DinoDiner.Menu.Size.Large);
         }
 
         /// <summary>
@@ -117,7 +196,10 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void MakeSweet(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if(Drink is Tyrannotea tea)
+            {
+                tea.Sweet = true;
+            }
         }
 
         /// <summary>
@@ -127,7 +209,14 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void AddLemon(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if (Drink is Tyrannotea tea)
+            {
+                tea.AddLemon();
+            }
+            else if(Drink is Water water)
+            {
+                water.AddLemon();
+            }
         }
 
         /// <summary>
@@ -137,17 +226,31 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void RemoveIce(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if (Drink is Tyrannotea tea)
+            {
+                tea.HoldIce();
+            }
+            else if (Drink is Water water)
+            {
+                water.HoldIce();
+            }
+            else if (Drink is Sodasaurus soda)
+            {
+                soda.HoldIce();
+            }
         }
 
         /// <summary>
-        /// Adds ice from drink
+        /// Adds ice to drink
         /// </summary>
         /// <param name="sender">flavor button being pushed</param>
         /// <param name="args"></param>
         private void AddIce(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if(Drink is JurassicJava java)
+            {
+                java.AddIce();
+            }
         }
 
         /// <summary>
@@ -157,7 +260,10 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void MakeDecaf(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if (Drink is JurassicJava java)
+            {
+                java.Decaf = true;
+            }
         }
 
         /// <summary>
@@ -167,7 +273,34 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void LeaveRoomForCream(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection());
+            if (Drink is JurassicJava java)
+            {
+                java.LeaveRoomForCream();
+            }
         }
+
+        /// <summary>
+        /// The side that is added to the order
+        /// </summary>
+        /// <param name="side">Side being selected</param>
+        private void SelectDrink(Drink drink)
+        {
+            if (DataContext is Order order)
+            {
+                order.Add(drink);
+                this.Drink = drink;
+            }
+        }
+
+        /// <summary>
+        /// Returns to MenuCatagorySelection screen
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void Finish(object sender, RoutedEventArgs args)
+        {
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
     }
 }
