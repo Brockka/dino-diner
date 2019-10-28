@@ -37,8 +37,8 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBox Text="Subtotal $ " FontWeight="Bold" TextAlignment="Right" Grid.Row="2"/>
-        <TextBox Text="{Binding Path=SubtotalCost, Mode=OneWay}" FontWeight="Bold" Grid.Row="2" Grid.Column="1"/>
+        <TextBlock Text="Subtotal $ " FontWeight="Bold" TextAlignment="Right" Grid.Row="2" Background="White"/>
+        <TextBlock Text="{Binding Path=SubtotalCost}" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Background="White"/>
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
 
         <Button Grid.Row="3">Cancel</Button>

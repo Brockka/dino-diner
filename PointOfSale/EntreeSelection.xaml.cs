@@ -55,7 +55,7 @@ namespace PointOfSale
                 order.Add(entree);
                 this.Entree = entree;
             }
-            NavigationService.Navigate(new MenuCategorySelection());
+            NavigationService.Navigate(new CustomizeEntree(entree));
         }
 
         /// <summary>

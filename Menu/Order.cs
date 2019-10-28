@@ -5,6 +5,7 @@ using System;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace DinoDiner.Menu
 {
@@ -13,11 +14,18 @@ namespace DinoDiner.Menu
     /// </summary>
     public class Order: INotifyPropertyChanged
     {
+        //Backing variable
+        List<IOrderItem> items = new List<IOrderItem>();
 
         /// <summary>
         /// Items that have been added to the order
         /// </summary>
-        public ObservableCollection<IOrderItem> Items { get; set; }
+        public IOrderItem[] Items {
+            get
+            {
+                return items.ToArray();
+            }
+        }
 
         /// <summary>
         /// Event handler for property changed
@@ -61,11 +69,11 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
-            Items = new ObservableCollection<IOrderItem>();
-            Items.CollectionChanged += OnCollectionChanged;
+            
         }
 
-        private void OnCollectionChanged(object sender, EventArgs args)
+        //Notifies of changes to the order
+        protected void NotifyofAllPropertiesChanged()
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubtotalCost"));
@@ -73,10 +81,34 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
         }
 
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+            NotifyofAllPropertiesChanged();
+        }
+
+        /// <summary>
+        /// Adds item to order
+        /// </summary>
+        /// <param name="item">item being added</param>
         public void Add(IOrderItem item)
         {
-            item.PropertyChanged += OnCollectionChanged;
-            Items.Add(item);
+            items.Add(item);
+            item.PropertyChanged += OnPropertyChanged;
+            NotifyofAllPropertiesChanged();
+        }
+
+        /// <summary>
+        /// Removes item from order
+        /// </summary>
+        /// <param name="item">item being removed</param>
+        public bool Remove(IOrderItem item)
+        {
+            bool removed = items.Remove(item);
+            if (removed)
+            {
+                NotifyofAllPropertiesChanged();
+            }
+            return removed;
         }
     }
 }
