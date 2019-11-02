@@ -21,8 +21,10 @@ namespace PointOfSale
     /// </summary>
     public partial class FlavorSelection : Page
     {
-        //Field for sodasaurus object
+        //Field for sodasaurus, combo, and if it is a combo
         Sodasaurus soda;
+        CretaceousCombo combo;
+        bool isCombo = false;
 
         /// <summary>
         /// Initializes form
@@ -30,6 +32,14 @@ namespace PointOfSale
         public FlavorSelection(Sodasaurus sodasaurus)
         {
             soda = sodasaurus;
+            InitializeComponent();
+        }
+
+        public FlavorSelection(CretaceousCombo combo)
+        {
+            this.combo = combo;
+            isCombo = true;
+            soda = (Sodasaurus)combo.Drink;
             InitializeComponent();
         }
 
@@ -41,7 +51,7 @@ namespace PointOfSale
         protected void MakeCherry(object sender, RoutedEventArgs args)
         {
             soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cherry;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            Return();
         }
 
         /// <summary>
@@ -52,7 +62,7 @@ namespace PointOfSale
         protected void MakeChocolate(object sender, RoutedEventArgs args)
         {
             soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Chocolate;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            Return();
         }
 
         /// <summary>
@@ -63,7 +73,7 @@ namespace PointOfSale
         protected void MakeLime(object sender, RoutedEventArgs args)
         {
             soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Lime;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            Return();
         }
 
         /// <summary>
@@ -74,7 +84,7 @@ namespace PointOfSale
         protected void MakeVanilla(object sender, RoutedEventArgs args)
         {
             soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Vanilla;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            Return();
         }
 
         /// <summary>
@@ -85,7 +95,7 @@ namespace PointOfSale
         protected void MakeOrange(object sender, RoutedEventArgs args)
         {
             soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Orange;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            Return();
         }
 
         /// <summary>
@@ -96,7 +106,7 @@ namespace PointOfSale
         protected void MakeCola(object sender, RoutedEventArgs args)
         {
             soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.Cola;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            Return();
         }
 
         /// <summary>
@@ -107,7 +117,23 @@ namespace PointOfSale
         protected void MakeRootbeer(object sender, RoutedEventArgs args)
         {
             soda.Flavor = DinoDiner.Menu.SodasaurusFlavor.RootBeer;
-            NavigationService.Navigate(new DrinkSelection(soda));
+            Return();
+        }
+
+        /// <summary>
+        /// Returns to drink selection after changes have been made
+        /// </summary>
+        private void Return()
+        {
+            if (isCombo)
+            {
+                combo.Drink = soda;
+                NavigationService.Navigate(new DrinkSelection(combo));
+            }
+            else
+            {
+                NavigationService.Navigate(new DrinkSelection(soda));
+            }
         }
     }
 }

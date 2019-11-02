@@ -15,15 +15,14 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Center">
-            <TextBlock FontSize="50" Text="Side" FontWeight="Black" HorizontalAlignment="Center"/>
-            <Button Height="150" Margin="10" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="100" Click="GetSide"></Button>
-            <TextBlock FontSize="50" Text="Drink" FontWeight="Black" HorizontalAlignment="Center"/>
-            <Button Height="150" Margin="10" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="100" Click="GetDrink"></Button>
+            <Button Height="150" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="100" Click="GetSide">Side</Button>
+            <Button Height="150" Margin="20" Background="PaleVioletRed" FontWeight="UltraBlack" FontSize="100" Click="GetDrink">Drink</Button>
         </StackPanel>
         <StackPanel Grid.Column="1" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <RadioButton Margin ="10" FontSize="50" Height="120" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Small</RadioButton>
-            <RadioButton Margin ="10" FontSize="50" Height="120" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Medium</RadioButton>
-            <RadioButton Margin ="10" FontSize="50" Height="120" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen">Large</RadioButton>
+            <RadioButton Margin ="10" FontSize="50" Height="100" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" x:Name="Small" Click="SelectSize" >Small</RadioButton>
+            <RadioButton Margin ="10" FontSize="50" Height="100" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" Name="Medium" Click="SelectSize">Medium</RadioButton>
+            <RadioButton Margin ="10" FontSize="50" Height="100" FontWeight="UltraBlack" Style="{StaticResource {x:Type ToggleButton}}" Background="PaleGreen" x:Name="Large" Click="SelectSize">Large</RadioButton>
+            <Button Grid.Row="3" Grid.Column="2" Margin="15" Background="CornflowerBlue" FontWeight="UltraBlack" FontSize="20" Click="Finish">Done</Button>
         </StackPanel>
         
     </Grid>

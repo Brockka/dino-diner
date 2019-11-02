@@ -17,13 +17,12 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Text="Order" FontWeight="Bold" TextAlignment="Right" BorderBrush="White"/>
-        <TextBox Text="#" FontWeight="Bold" Grid.Column="1" Margin="0,0,0,0" BorderBrush="White"/>
+        <TextBlock Text="Order #" FontWeight="Bold" TextAlignment="Center"  Grid.ColumnSpan="2" Background="DeepPink"/>
         <ListBox Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}"
-                 SelectionChanged="OnSelectionChanged" IsSynchronizedWithCurrentItem="True" Name="OrderItems">
+                 SelectionChanged="OnSelectionChanged" IsSynchronizedWithCurrentItem="False" Name="OrderItems" Background="AliceBlue">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel Width="190">
+                    <StackPanel Width="190" Background="AliceBlue">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -32,16 +31,16 @@
                             <TextBlock Text="{Binding Path=Description}"/>
                             <Button Click="OnItemRemoval" Background="Red" Foreground="White" Grid.Column="1">X</Button>
                         </Grid>
-                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White"/>
+                        <ListBox ItemsSource="{Binding Path=Special}" BorderBrush="White" Background="LightPink"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <TextBlock Text="Subtotal $ " FontWeight="Bold" TextAlignment="Right" Grid.Row="2" Background="White"/>
-        <TextBlock Text="{Binding Path=SubtotalCost}" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Background="White"/>
+        <TextBlock Text="Subtotal $ " FontWeight="Bold" TextAlignment="Right" Grid.Row="2" Background="DeepPink"/>
+        <TextBlock Text="{Binding Path=SubtotalCost}" FontWeight="Bold" Grid.Row="2" Grid.Column="1" Background="DeepPink"/>
         <TextBox Text="Buttons Go Here" Grid.Row="3"/>
 
-        <Button Grid.Row="3">Cancel</Button>
-        <Button Grid.Row="3" Grid.Column="1">Pay</Button>
+        <Button Grid.Row="3" Background="LightSteelBlue">Cancel</Button>
+        <Button Grid.Row="3" Grid.Column="1" Background="LightSteelBlue">Pay</Button>
     </Grid>
 </UserControl>

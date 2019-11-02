@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:PointOfSale"
         xmlns:menu ="clr-namespace:DinoDiner.Menu;assembly=Menu"
         mc:Ignorable ="d"
+        Background="DarkSlateBlue"
         Title="MainWindow" Height="450" Width="800">
     <Window.DataContext>
         <menu:Order/>
@@ -18,12 +19,13 @@
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button DockPanel.Dock="Bottom" Grid.Column="1" Height="40" Margin="0,0,0,10">Go Back</Button>
+            <Button DockPanel.Dock="Bottom" VerticalAlignment="Center" Grid.Column="1" Height="40" Margin="0,5,0,5" Click="GoBack" Background="DeepPink">Go Back</Button>
         </Grid>
         <Frame Source="MenuCategorySelection.xaml" 
                LoadCompleted="OnLoadCompleted"
                Name="OrderInterface"
                NavigationUIVisibility="Hidden"
+               Background="Lavender"
                />
     </DockPanel>
 </Window>

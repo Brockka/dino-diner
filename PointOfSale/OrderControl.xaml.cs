@@ -25,7 +25,7 @@ namespace PointOfSale
 
         public OrderControl()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         /// <summary>
@@ -42,6 +42,15 @@ namespace PointOfSale
             if (OrderItems.SelectedItem is Drink drink)
             {
                 NavigationService?.Navigate(new DrinkSelection(drink));
+            }
+            if (OrderItems.SelectedItem is Entree entree)
+            {
+                if(entree is PterodactylWings){  }
+                else { NavigationService?.Navigate(new CustomizeEntree(entree)); }  
+            }
+            if(OrderItems.SelectedItem is CretaceousCombo combo)
+            {
+                NavigationService?.Navigate(new CustomizeCombo(combo));
             }
         }
 

@@ -21,7 +21,7 @@ namespace MenuTest
             Order order = new Order();
             MockEntree mock = new MockEntree();
             mock.Price = -4.5;
-            order.Items.Add(mock);
+            order.Add(mock);
             Assert.Equal(0, order.SubtotalCost);
         }
 
@@ -31,7 +31,7 @@ namespace MenuTest
             Order order = new Order();
             MockDrink drink = new MockDrink();
             drink.Price = 10;
-            order.Items.Add(drink);
+            order.Add(drink);
             Assert.Equal(1, order.SalesTaxCost);
         }
 
@@ -45,9 +45,9 @@ namespace MenuTest
             entree.Price = 15;
             side.Price = 5;
             drink.Price = 10;
-            order.Items.Add(drink);
-            order.Items.Add(entree);
-            order.Items.Add(side);
+            order.Add(drink);
+            order.Add(entree);
+            order.Add(side);
             Assert.Equal(33, order.TotalCost);
         }
 

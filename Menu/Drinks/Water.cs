@@ -73,9 +73,10 @@ namespace DinoDiner.Menu
         public override Size Size
         {
             set
-            {
-                NotifyOfPropertyChange("Description");
+            { 
                 size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
             }
             get { return size; }
 

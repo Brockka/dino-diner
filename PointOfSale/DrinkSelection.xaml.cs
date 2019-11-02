@@ -21,12 +21,30 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        // Private fields for combo and if a combo is being modified
+        private CretaceousCombo combo;
+        private bool isCombo = false;
+
+
         /// <summary>
         /// Initializes form
         /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Constructor for modifying combo drinks
+        /// </summary>
+        /// <param name="combo">The combo being modified</param>
+        public DrinkSelection(CretaceousCombo combo)
+        {
+            this.combo = combo;
+            Drink = combo.Drink;
+            isCombo = true;
+            InitializeComponent();
+            ShowButtons();
         }
 
         /// <summary>
@@ -37,6 +55,14 @@ namespace PointOfSale
         {
             Drink = drink;
             InitializeComponent();
+            ShowButtons();
+        }
+
+        /// <summary>
+        /// Shows buttons based on what drink is being modified
+        /// </summary>
+        private void ShowButtons()
+        {
             if (Drink is Sodasaurus)
             {
                 Cream.Visibility = Visibility.Collapsed;
@@ -82,7 +108,7 @@ namespace PointOfSale
         /// <summary>
         /// The current drink
         /// </summary>
-        public Drink Drink { get; set; }
+        private Drink Drink { get; set; }
 
         /// <summary>
         /// Dynamically displays different button options and adds drink
@@ -145,7 +171,10 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void ChooseFlavor(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new FlavorSelection(Drink as Sodasaurus));
+            if (isCombo)
+                NavigationService.Navigate(new FlavorSelection(combo));
+            else
+                NavigationService.Navigate(new FlavorSelection(Drink as Sodasaurus));
         }
 
         /// <summary>
@@ -156,6 +185,7 @@ namespace PointOfSale
         {
             if (Drink != null)
                 this.Drink.Size = size;
+            if (isCombo) combo.Drink = Drink;
         }
 
 
@@ -200,6 +230,7 @@ namespace PointOfSale
             {
                 tea.Sweet = true;
             }
+            if (isCombo) combo.Drink = Drink;
         }
 
         /// <summary>
@@ -217,6 +248,7 @@ namespace PointOfSale
             {
                 water.AddLemon();
             }
+            if (isCombo) combo.Drink = Drink;
         }
 
         /// <summary>
@@ -238,6 +270,7 @@ namespace PointOfSale
             {
                 soda.HoldIce();
             }
+            if (isCombo) combo.Drink = Drink;
         }
 
         /// <summary>
@@ -251,6 +284,7 @@ namespace PointOfSale
             {
                 java.AddIce();
             }
+            if (isCombo) combo.Drink = Drink;
         }
 
         /// <summary>
@@ -264,6 +298,7 @@ namespace PointOfSale
             {
                 java.Decaf = true;
             }
+            if (isCombo) combo.Drink = Drink;
         }
 
         /// <summary>
@@ -277,6 +312,7 @@ namespace PointOfSale
             {
                 java.LeaveRoomForCream();
             }
+            if (isCombo) combo.Drink = Drink;
         }
 
         /// <summary>
@@ -287,8 +323,12 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Add(drink);
                 this.Drink = drink;
+                if (!isCombo)
+                {
+                    order.Add(drink);   
+                }
+                else combo.Drink = drink;
             }
         }
 
@@ -299,7 +339,8 @@ namespace PointOfSale
         /// <param name="args"></param>
         private void Finish(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            if (isCombo) { NavigationService.Navigate(new CustomizeCombo(combo)); }
+            else NavigationService.Navigate(new MenuCategorySelection());
         }
 
     }

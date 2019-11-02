@@ -16,43 +16,43 @@
                 <Setter Property="Height" Value="200"/>
             </Style>
         </WrapPanel.Resources>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo" Name="Brontowurst"> 
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Brontowurst Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-01.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo" Name="Nuggets">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Dino-Nuggets Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-02.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo" Name="Steakosaurus">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Steakosaurus Burger Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-05.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo" Name="Trex">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="T-Rex King Burger Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-06.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo" Name="Pterodactyl">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Pterodactyl Wings Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-04.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo" Name="PBJ">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Prehistoric PB&amp;J Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-03.png" Width="175" Stretch="Fill" Height="175"/>
             </DockPanel>
         </Button>
-        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo">
+        <Button BorderThickness="4" BorderBrush="Purple" Background="White" Margin="10" Click="CustomizeCombo" Name="VelociWrap">
             <DockPanel Height="185" Width="185" Background="White">
                 <TextBlock Text="Veloci-Wrap Combo" DockPanel.Dock="Bottom" TextAlignment="Center" FontWeight="Black"/>
                 <Image Source="Assets/DinoDiner-07.png" Width="175" Stretch="Fill" Height="175"/>

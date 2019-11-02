@@ -55,7 +55,14 @@ namespace PointOfSale
                 order.Add(entree);
                 this.Entree = entree;
             }
-            NavigationService.Navigate(new CustomizeEntree(entree));
+            if(entree is PterodactylWings)
+            {
+                NavigationService.Navigate(new MenuCategorySelection());
+            }
+            else
+            {
+                NavigationService.Navigate(new CustomizeEntree(entree));
+            }  
         }
 
         /// <summary>

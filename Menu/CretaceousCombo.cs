@@ -78,11 +78,12 @@ namespace DinoDiner.Menu
         {
             get { return size; }
             set{
-                NotifyOfPropertyChange("Description");
-                NotifyOfPropertyChange("Price");
                 this.size = value;
                 this.Drink.Size = value;
                 this.Side.Size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Special");     
             }
         }
 

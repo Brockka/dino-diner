@@ -33,6 +33,19 @@ namespace PointOfSale
             OrderList.NavigationService = OrderInterface.NavigationService;
         }
 
+        public void GoBack(object sender, RoutedEventArgs args)
+        {
+            if (OrderList.NavigationService.CanGoBack)
+            {
+                OrderList.NavigationService.GoBack();
+            }
+            else
+            {
+                OrderList.NavigationService.Navigate(new MenuCategorySelection());
+            }
+        }
+
+
         public void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
             SetFrameDataContext();
