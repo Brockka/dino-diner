@@ -3,85 +3,80 @@
 @{
     ViewData["Title"] = "Menu";
 }
-<body style="background-color:black;color:white; text-align:center">
-        <h1>Menu</h1>
+    <body style="background-color:black;color:white;">
+        <div id="container">
+            <div>
+                <h1>Menu</h1>
+                @foreach (DinoDiner.Menu.IMenuItem items in Model.MenuList)
+                {
+                    <div class="menu-item">
+                        <h4>@items.ToString() &emsp;&emsp;&emsp;&emsp;&emsp;$@items.Price</h4>
+                        <i> Calories: @items.Calories</i>
+                        <p>
+                            <b> Ingredients:</b>
+                            @foreach (string i in items.Ingredients)
+                            {
+                                <br>@i
+                            }
+                        </p>
+                        <hr>
+                    </div>
+                }
 
-        <div class="row">
-            <div class="column">
-                <h2>Combo</h2>
-                @foreach (DinoDiner.Menu.CretaceousCombo c in Model.Menu.AvailableCombos)
-                {
-                    <div class="menu-item">
-                        <h4>
-                            @c.Description
-                        </h4>
-                        <p> Calories: @c.Calories</p>
-                        <p> Price: @c.Price</p>
-                        <h5> Ingredients:</h5>
-                        @foreach (string i in c.Ingredients)
-                        {
-                            <p>@i</p>
-                        }
-                        <hr>
-                    </div>
-                }
+                
             </div>
-            <div class="column">
-                <h2>Entrees</h2>
-                @foreach (DinoDiner.Menu.Entree e in Model.Menu.AvailableEntrees)
-                {
-                    <div class="menu-item">
-                        <h4>
-                            @e.Description
-                        </h4>
-                        <p> Calories: @e.Calories</p>
-                        <p> Price: @e.Price</p>
-                        <h5> Ingredients:</h5>
-                        @foreach (string i in e.Ingredients)
-                        {
-                            <p>@i</p>
-                        }
-                        <hr>
-                    </div>
-                }
+
+
+
+            <div class="checkbox-list">
+                <form method="post">
+                    <input type="text" name="search" value="@Model.Search" />
+                    <input type="submit" value="Search and Filter" />
+
+                    <h2>Menu Category</h2>
+                    <label>
+                        <input class="menu-category" type="checkbox" name="menuCategory" value="Combo" checked="@Model.menuCategory.Contains("Combo")" />
+                        Combo
+                    </label>
+                    <br>
+                    <label>
+                        <input class="menu-category" type="checkbox" name="menuCategory" value="Entree" checked="@Model.menuCategory.Contains("Entree")" />
+                        Entree
+                    </label>
+                    <br>
+                    <label>
+                        <input class="menu-category" type="checkbox" name="menuCategory" value="Side" checked="@Model.menuCategory.Contains("Side")" />
+                        Side
+                    </label>
+                    <br>
+                    <label>
+                        <input class="menu-category" type="checkbox" name="menuCategory" value="Drink" checked="@Model.menuCategory.Contains("Drink")" />
+                        Drink
+                    </label>
+
+                    <h4>Review Scores</h4>
+                    <label>
+                        Minimum Price:
+                        <input type="number" min="0" max="15" step="0.1" name="minimumPrice" id="minimum-price" value="@Model.minimumPrice"/>
+                    </label>
+                    <br>
+                    <label>
+                        Maximum Price:
+                        <input type="number" min="0" max="15" step="0.1" name="maximumPrice" id="maximum-price" value="@Model.maximumPrice"/>
+                    </label>
+
+                    <h4>Excluding Ingredients</h4>
+
+                    @foreach (string s in Model.Menu.PossibleIngredients)
+                    {
+                        <label>
+                            <input class="exclude-ingredient" type="checkbox" name="excludeIngredient" value="@s" checked="@Model.excludeIngredient.Contains(s)" />
+                            @s
+                        </label>
+                        <br>
+                    }
+
+                </form>
+                </div>
             </div>
-            <div class="column">
-                <h2>Sides</h2>
-                @foreach (DinoDiner.Menu.Side s in Model.Menu.AvailableSides)
-                {
-                    <div class="menu-item">
-                        <h4>
-                            @s.Description
-                        </h4>
-                        <p> Calories: @s.Calories</p>
-                        <p> Price: @s.Price</p>
-                        <h5> Ingredients:</h5>
-                        @foreach (string i in s.Ingredients)
-                        {
-                            <p>@i</p>
-                        }
-                        <hr>
-                    </div>
-                }
-            </div>
-            <div class="column">
-                <h2>Drinks</h2>
-                @foreach (DinoDiner.Menu.Drink d in Model.Menu.AvailableDrinks)
-                {
-                    <div class="menu-item">
-                        <h4>
-                            @d.Description
-                        </h4>
-                        <p> Calories: @d.Calories</p>
-                        <p> Price: @d.Price</p>
-                        <h5> Ingredients:</h5>
-                        @foreach (string i in d.Ingredients)
-                        {
-                            <p>@i</p>
-                        }
-                        <hr>
-                    </div>
-                }
-            </div>
-        </div>
-    </body>
+</body>
